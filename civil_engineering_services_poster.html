@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Engineering Academic Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1a4d7a;
+            --accent-blue: #2b7cb8;
+            --bright-blue: #3a9bd9;
+            --dark-grey: #2a2a2a;
+            --medium-grey: #4a5568;
+            --light-grey: #e2e8f0;
+            --white: #ffffff;
+            --grid-color: rgba(42, 124, 184, 0.15);
+            --accent-orange: #f59e0b;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .poster {
+            width: 800px;
+            height: 1100px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e8eef5 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Technical Grid Background */
+        .grid-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridSlide 30s linear infinite;
+        }
+
+        @keyframes gridSlide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        /* Blueprint Pattern Overlay */
+        .blueprint-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(26, 77, 122, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(43, 124, 184, 0.03) 0%, transparent 50%);
+        }
+
+        /* Decorative Structural Elements */
+        .structural-accent {
+            position: absolute;
+            border: 3px solid var(--accent-blue);
+            opacity: 0.15;
+        }
+
+        .accent-1 {
+            top: 60px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .accent-2 {
+            bottom: -50px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            transform: rotate(45deg);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(45deg); }
+            100% { transform: rotate(405deg); }
+        }
+
+        /* Content Container */
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            padding: 8px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+            box-shadow: 0 4px 15px rgba(26, 77, 122, 0.3);
+        }
+
+        .main-headline {
+            font-family: 'Oswald', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .main-headline .highlight {
+            color: var(--accent-blue);
+            display: block;
+            font-size: 64px;
+        }
+
+        .subheadline {
+            font-size: 18px;
+            color: var(--medium-grey);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--white);
+            border-left: 5px solid var(--accent-blue);
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateX(8px);
+            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+        }
+
+        .service-icon {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-blue);
+            margin-right: 12px;
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+            flex-shrink: 0;
+        }
+
+        .service-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--dark-grey);
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            padding: 25px 30px;
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .pricing-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .pricing-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-highlight {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-highlight span {
+            font-size: 32px;
+            opacity: 0.9;
+        }
+
+        .pricing-details {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            display: flex;
+            justify-content: space-around;
+            margin: 25px 0;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .benefit-badge {
+            text-align: center;
+            flex: 1;
+            padding: 15px 10px;
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--bright-blue));
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--white);
+            font-weight: 700;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(43, 124, 184, 0.3);
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-badge:hover .benefit-icon {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        .benefit-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark-grey);
+            padding: 35px;
+            margin-top: auto;
+            clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .contact-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .whatsapp-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .whatsapp-button {
+            flex: 1;
+            background: #25D366;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .whatsapp-number {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 20px;
+            color: var(--white);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* Decorative Corner Elements */
+        .corner-accent {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--accent-blue);
+            opacity: 0.3;
+        }
+
+        .corner-tl {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-br {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <!-- Background Elements -->
+        <div class="grid-background"></div>
+        <div class="blueprint-overlay"></div>
+        <div class="structural-accent accent-1"></div>
+        <div class="structural-accent accent-2"></div>
+        <div class="corner-accent corner-tl"></div>
+        <div class="corner-accent corner-br"></div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-badge">Academic Support Services</div>
+                <h1 class="main-headline">
+                    Need Help with
+                    <span class="highlight">Civil Engineering</span>
+                    Assignments?
+                </h1>
+                <p class="subheadline">Expert Assistance for Bachelor-Level Students</p>
+            </div>
+
+            <!-- Services -->
+            <div class="services-section">
+                <h2 class="section-title">Services We Offer</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon"></div>
+                        <span class="service-text">Assignments</span>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"></div>
+                        <span class="service-text">Project Reports</span>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"></div>
+                        <span class="service-text">Lab Calculations</span>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"></div>
+                        <span class="service-text">Engineering Analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="pricing-section">
+                <div class="pricing-content">
+                    <div class="pricing-highlight">
+                        <span>Starting from</span> $5<sup>*</sup>
+                    </div>
+                    <div class="pricing-details">*Based on complexity & deadline</div>
+                </div>
+            </div>
+
+            <!-- Benefits -->
+            <div class="benefits-section">
+                <div class="benefit-badge">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text">Accurate</div>
+                </div>
+                <div class="benefit-badge">
+                    <div class="benefit-icon">⏰</div>
+                    <div class="benefit-text">On-Time</div>
+                </div>
+                <div class="benefit-badge">
+                    <div class="benefit-icon">★</div>
+                    <div class="benefit-text">Professional</div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-section">
+                <h2 class="contact-title">Contact Now on WhatsApp</h2>
+                <div class="whatsapp-container">
+                    <a href="https://wa.me/9779866021174" class="whatsapp-button">
+                        <div class="whatsapp-label">WhatsApp</div>
+                        <div class="whatsapp-number">+977 9866021174</div>
+                    </a>
+                    <a href="https://wa.me/9779864836756" class="whatsapp-button">
+                        <div class="whatsapp-label">WhatsApp</div>
+                        <div class="whatsapp-number">+977 9864836756</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
