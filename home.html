@@ -35,12 +35,23 @@
         }
 
         .poster {
-            width: 800px;
-            height: 1100px;
+            width: 100%;
+            max-width: 800px;
+            min-height: 1400px;
             background: linear-gradient(135deg, #f8fafc 0%, #e8eef5 100%);
             position: relative;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .poster {
+                min-height: auto;
+            }
         }
 
         /* Technical Grid Background */
@@ -120,6 +131,12 @@
             padding: 50px;
         }
 
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+        }
+
         /* Header Section */
         .header {
             text-align: center;
@@ -169,6 +186,26 @@
             font-size: 64px;
         }
 
+        @media (max-width: 768px) {
+            .main-headline {
+                font-size: 36px;
+            }
+
+            .main-headline .highlight {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-headline {
+                font-size: 28px;
+            }
+
+            .main-headline .highlight {
+                font-size: 34px;
+            }
+        }
+
         .subheadline {
             font-size: 18px;
             color: var(--medium-grey);
@@ -184,6 +221,13 @@
             margin: 30px 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 25px 20px;
+                margin: 20px 0;
+            }
         }
 
         @keyframes fadeInUp {
@@ -210,6 +254,13 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
         }
 
         .service-item {
@@ -287,10 +338,264 @@
             opacity: 0.9;
         }
 
+        @media (max-width: 768px) {
+            .pricing-highlight {
+                font-size: 38px;
+            }
+
+            .pricing-highlight span {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-highlight {
+                font-size: 32px;
+            }
+
+            .pricing-highlight span {
+                font-size: 22px;
+            }
+        }
+
         .pricing-details {
             font-size: 16px;
             color: rgba(255, 255, 255, 0.95);
             font-weight: 500;
+        }
+
+        /* Detailed Pricing Section */
+        .pricing-details-section {
+            background: var(--white);
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-details-section {
+                padding: 25px 20px;
+                margin: 20px 0;
+            }
+        }
+
+        .pricing-tier {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-tier:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .tier-header {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        .tier-header.basic {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+        }
+
+        .tier-header.standard {
+            background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);
+        }
+
+        .tier-header.premium {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: var(--white);
+        }
+
+        .tier-icon {
+            font-size: 24px;
+        }
+
+        .tier-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-grow: 1;
+        }
+
+        .tier-badge {
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-content {
+            padding: 20px;
+            background: #f8fafc;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-name {
+            font-size: 15px;
+            color: var(--dark-grey);
+            font-weight: 500;
+            flex: 1;
+            padding-right: 15px;
+        }
+
+        .price-range {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .price-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .service-name {
+                padding-right: 0;
+            }
+        }
+
+        .software-note {
+            margin-top: 12px;
+            padding: 12px;
+            background: rgba(26, 77, 122, 0.05);
+            border-left: 3px solid var(--accent-blue);
+            font-size: 13px;
+            color: var(--medium-grey);
+        }
+
+        .software-note strong {
+            color: var(--primary-blue);
+        }
+
+        /* Add-ons Section */
+        .addons-section {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 8px;
+        }
+
+        .addons-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            color: var(--dark-grey);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .addons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .addon-item {
+            background: var(--white);
+            padding: 12px 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .addon-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dark-grey);
+            flex: 1;
+        }
+
+        .addon-price {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-orange);
+            white-space: nowrap;
+        }
+
+        /* Bundle Offer */
+        .bundle-offer {
+            margin-top: 20px;
+            padding: 18px 25px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .bundle-icon {
+            font-size: 32px;
+        }
+
+        .bundle-text {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .bundle-text strong {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        @media (max-width: 480px) {
+            .bundle-offer {
+                padding: 15px 20px;
+            }
+
+            .bundle-icon {
+                font-size: 24px;
+            }
+
+            .bundle-text {
+                font-size: 14px;
+            }
+
+            .bundle-text strong {
+                font-size: 16px;
+            }
         }
 
         /* Benefits Section */
@@ -345,6 +650,13 @@
             animation: fadeInUp 1s ease-out 0.9s both;
         }
 
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 30px 20px;
+                clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+
         .contact-title {
             font-family: 'Oswald', sans-serif;
             font-size: 28px;
@@ -355,10 +667,24 @@
             letter-spacing: 1.5px;
         }
 
+        @media (max-width: 480px) {
+            .contact-title {
+                font-size: 22px;
+                letter-spacing: 1px;
+            }
+        }
+
         .whatsapp-container {
             display: flex;
             gap: 20px;
             justify-content: center;
+        }
+
+        @media (max-width: 600px) {
+            .whatsapp-container {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
 
         .whatsapp-button {
@@ -396,6 +722,13 @@
             letter-spacing: 1px;
         }
 
+        @media (max-width: 480px) {
+            .whatsapp-number {
+                font-size: 16px;
+                letter-spacing: 0.5px;
+            }
+        }
+
         /* Decorative Corner Elements */
         .corner-accent {
             position: absolute;
@@ -417,6 +750,19 @@
             right: 20px;
             border-left: none;
             border-top: none;
+        }
+
+        @media (max-width: 768px) {
+            .corner-accent {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .corner-accent {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -472,7 +818,94 @@
                     <div class="pricing-highlight">
                         <span>Starting from</span> $5<sup>*</sup>
                     </div>
-                    <div class="pricing-details">*Based on complexity & deadline</div>
+                    <div class="pricing-details">*Depends on complexity & deadline</div>
+                </div>
+            </div>
+
+            <!-- Detailed Pricing Table -->
+            <div class="pricing-details-section">
+                <h2 class="section-title">Transparent Pricing</h2>
+                
+                <div class="pricing-tier">
+                    <div class="tier-header basic">
+                        <div class="tier-icon">🔹</div>
+                        <div class="tier-title">Basic Tasks</div>
+                    </div>
+                    <div class="tier-content">
+                        <div class="price-item">
+                            <span class="service-name">Short Assignments (theory-based)</span>
+                            <span class="price-range">$5 – $10</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Basic Lab Calculations</span>
+                            <span class="price-range">$8 – $15</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-tier">
+                    <div class="tier-header standard">
+                        <div class="tier-icon">⭐</div>
+                        <div class="tier-title">Standard Work</div>
+                        <div class="tier-badge">Most Popular</div>
+                    </div>
+                    <div class="tier-content">
+                        <div class="price-item">
+                            <span class="service-name">Detailed Assignments (diagrams + calculations)</span>
+                            <span class="price-range">$15 – $30</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Lab Reports (analysis + graphs)</span>
+                            <span class="price-range">$20 – $40</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-tier">
+                    <div class="tier-header premium">
+                        <div class="tier-icon">💎</div>
+                        <div class="tier-title">Premium Projects</div>
+                    </div>
+                    <div class="tier-content">
+                        <div class="price-item">
+                            <span class="service-name">Project Reports (mini project)</span>
+                            <span class="price-range">$40 – $80</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Full Semester Project / Advanced Analysis</span>
+                            <span class="price-range">$80 – $150+</span>
+                        </div>
+                        <div class="software-note">
+                            <strong>Includes:</strong> AutoCAD, ETABS, SEEP/W & other software
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add-ons -->
+                <div class="addons-section">
+                    <h3 class="addons-title">📦 Add-On Services</h3>
+                    <div class="addons-grid">
+                        <div class="addon-item">
+                            <div class="addon-name">⚡ Urgent Delivery (24-48hrs)</div>
+                            <div class="addon-price">+30% to 50%</div>
+                        </div>
+                        <div class="addon-item">
+                            <div class="addon-name">🔄 Extra Revisions</div>
+                            <div class="addon-price">+$5 – $15</div>
+                        </div>
+                        <div class="addon-item">
+                            <div class="addon-name">📊 Presentation (PPT + explanation)</div>
+                            <div class="addon-price">+$10 – $25</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bundle Offer -->
+                <div class="bundle-offer">
+                    <div class="bundle-icon">🎁</div>
+                    <div class="bundle-text">
+                        <strong>Bundle Discount:</strong> Get 3 assignments for just $25!
+                    </div>
                 </div>
             </div>
 
